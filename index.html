@@ -2,60 +2,166 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
-  <title>Ma Réservation</title>
+  <title>Réservation Casa Padel</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     body {
-      font-family: sans-serif;
-      text-align: center;
-      padding: 50px;
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
       background-color: #4B00FF;
       color: white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      min-height: 100vh;
     }
-    #validationScreen {
-      display: none;
-      background-color: #38c172;
-      color: white;
-      padding: 50px;
+
+    .container {
+      max-width: 420px;
+      padding: 20px;
+    }
+
+    h1 {
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+
+    .info {
+      font-size: 16px;
+      margin: 6px 0;
+    }
+
+    .equipements {
+      background-color: white;
+      color: #333;
+      padding: 10px;
       border-radius: 10px;
+      margin-top: 20px;
     }
+
+    .equipements h2 {
+      font-size: 16px;
+      margin-bottom: 8px;
+    }
+
+    .equipements ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .equipements li {
+      margin: 6px 0;
+    }
+
+    .cancel-policy {
+      margin-top: 20px;
+      background-color: #eee;
+      color: #000;
+      padding: 10px;
+      border-radius: 8px;
+      font-size: 14px;
+    }
+
+    .cancel-policy .ok {
+      color: green;
+      font-weight: bold;
+    }
+
+    .cancel-policy .ko {
+      color: red;
+      font-weight: bold;
+    }
+
     button {
+      margin-top: 20px;
       background-color: white;
       color: #4B00FF;
       border: none;
-      padding: 15px 30px;
+      border-radius: 10px;
       font-size: 18px;
-      border-radius: 8px;
+      padding: 14px 24px;
       cursor: pointer;
+      font-weight: bold;
+    }
+
+    .validation {
+      background-color: #38c172;
+      color: white;
+      width: 100%;
+      height: 100vh;
+      position: fixed;
+      top: 0;
+      left: 0;
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .validation img {
+      width: 80%;
+      border-radius: 10px;
+      margin-bottom: 15px;
+    }
+
+    .validation h1 {
+      font-size: 26px;
+      margin-bottom: 8px;
+    }
+
+    .validation p {
+      margin: 4px 0;
+    }
+
+    .thumb {
+      font-size: 60px;
+      margin-bottom: 10px;
     }
   </style>
 </head>
 <body>
 
-  <h1>Ma réservation</h1>
-  <p><strong>Lieu :</strong> Casa Padel – Saint-Denis</p>
-  <p><strong>Date :</strong> 18 mai 2025</p>
-  <p><strong>Heure d'entrée :</strong> Entre 17:30 et 23:00</p>
+  <div class="container">
+    <h1>Ma réservation</h1>
+    <p class="info">📍 103 Rue Charles Michels, Saint-Denis 93200</p>
+    <p class="info">📅 18 mai 2025</p>
+    <p class="info">🕒 Entrée entre 17:30 et 23:00</p>
 
-  <button onclick="validerPresence()">Valider ma présence</button>
+    <div class="equipements">
+      <h2>Équipements à prévoir :</h2>
+      <ul>
+        <li>👟 Chaussures de sport</li>
+        <li>💧 Gourde</li>
+        <li>🧴 Serviette</li>
+        <li>🎽 Tenue de sport</li>
+      </ul>
+    </div>
 
-  <div id="validationScreen">
-    <h1>✅ Séance validée</h1>
+    <div class="cancel-policy">
+      <p class="ok">✅ Annulation gratuite</p>
+      <p class="ko">❌ Non-présentation = perte de vos crédits</p>
+    </div>
+
+    <button onclick="validerPresence()">Valider ma présence</button>
+  </div>
+
+  <div class="validation" id="validation">
+    <img src="image_2.jpg" alt="Validation">
+    <div class="thumb">👍</div>
+    <h1>Séance validée</h1>
     <p>Hamza Ben Mabrouk</p>
     <p>Casa Padel – Saint-Denis</p>
-    <p>18 mai 2025 à 12:21</p>
+    <p>18 mai 2025 – 12:21</p>
   </div>
 
   <script>
     function validerPresence() {
-      document.body.style.backgroundColor = "#38c172";
-      document.body.innerHTML = `
-        <h1>✅ Séance validée</h1>
-        <p>Hamza Ben Mabrouk</p>
-        <p>Casa Padel – Saint-Denis</p>
-        <p>18 mai 2025 à 12:21</p>
-      `;
+      document.querySelector('.container').style.display = 'none';
+      document.getElementById('validation').style.display = 'flex';
     }
   </script>
-
 </body>
 </html>
