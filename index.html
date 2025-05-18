@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Ma Réservation</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      text-align: center;
+      padding: 50px;
+      background-color: #4B00FF;
+      color: white;
+    }
+    #validationScreen {
+      display: none;
+      background-color: #38c172;
+      color: white;
+      padding: 50px;
+      border-radius: 10px;
+    }
+    button {
+      background-color: white;
+      color: #4B00FF;
+      border: none;
+      padding: 15px 30px;
+      font-size: 18px;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Ma réservation</h1>
+  <p><strong>Lieu :</strong> Casa Padel – Saint-Denis</p>
+  <p><strong>Date :</strong> 18 mai 2025</p>
+  <p><strong>Heure d'entrée :</strong> Entre 17:30 et 23:00</p>
+
+  <button onclick="validerPresence()">Valider ma présence</button>
+
+  <div id="validationScreen">
+    <h1>✅ Séance validée</h1>
+    <p>Hamza Ben Mabrouk</p>
+    <p>Casa Padel – Saint-Denis</p>
+    <p>18 mai 2025 à 12:21</p>
+  </div>
+
+  <script>
+    function validerPresence() {
+      document.body.style.backgroundColor = "#38c172";
+      document.body.innerHTML = `
+        <h1>✅ Séance validée</h1>
+        <p>Hamza Ben Mabrouk</p>
+        <p>Casa Padel – Saint-Denis</p>
+        <p>18 mai 2025 à 12:21</p>
+      `;
+    }
+  </script>
+
+</body>
+</html>
